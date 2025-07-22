@@ -1,8 +1,10 @@
 "use client"
-
 import React, { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
+import { signIn } from "next-auth/react"
+
+
 
 
 const sections = ["home", "about", "services", "product", "contact"]
@@ -23,7 +25,6 @@ const Header = () => {
       }
       setActiveSection(current)
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -68,17 +69,19 @@ const Header = () => {
                 height={50}
               />
             </div>
-            <div>
-              <h1 className="text-lg font-bold leading-tight font-Oswald">
-                Yetebaberut Beherawi Petroleum
-              </h1>
-              <h2 className="text-sm font-sans">የተባበሩት ብሔራዊ ፔትሮሊየም (የብፔ)</h2>
-              <p className="text-green-200 text-xs font-sans">Bale Robe Branch</p>
-            </div>
+           <div className="leading-snug">
+              <h1 className="text-xl font-semibold tracking-tight font-sans">
+               Yetebaberut Beherawi Petroleum
+             </h1>
+             <h2 className="text-sm font-medium text-gray-100 font-sans">
+               የተባበሩት ብሔራዊ ፔትሮሊየም (የብፔ)
+             </h2>
+              <p className="text-green-200 text-xs italic">Bale Robe Branch</p>
+           </div>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex flex-1 justify-center space-x-6 items-center font-Oswald">
+          <nav className="hidden md:flex flex-1 justify-center space-x-6 items-center font-medium tracking-wide">
             {sections.map((section) => (
               <a
                 key={section}
@@ -95,14 +98,14 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right: Contact Me Button (desktop) */}
+          {/* Right: Sign Up Button (desktop) */}
           <div className="hidden md:flex items-center space-x-2">
-            <a
-              href="#contact"
+            <button
+              onClick={() => signIn("google")}
               className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
             >
-              Contact Us
-            </a>
+              Signup
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -124,7 +127,6 @@ const Header = () => {
             <X className="w-6 h-6" />
           </button>
         </div>
-
         <nav className="flex flex-col space-y-4 text-lg">
           {sections.map((section) => (
             <a
@@ -140,17 +142,15 @@ const Header = () => {
               {section}
             </a>
           ))}
-
-          <a
-            href="#contact"
-            className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm text-center justify-center"
+          <button
+            onClick={() => signIn("google")}
+            className="mt-6 rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"
           >
-            Contact us
-          </a>
+            Sign up with Google
+          </button>
         </nav>
       </div>
     </header>
   )
 }
-
 export default Header
