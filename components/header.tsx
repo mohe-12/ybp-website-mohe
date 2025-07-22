@@ -95,13 +95,13 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right: Sign Up Button (desktop) */}
+          {/* Right: Contact Me Button (desktop) */}
           <div className="hidden md:flex items-center space-x-2">
             <button
-              onClick={() => signIn("google")}
+              onClick={() => contact("contact")}
               className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
             >
-              Signup
+              Contact me
             </button>
           </div>
 
