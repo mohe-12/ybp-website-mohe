@@ -97,12 +97,12 @@ const Header = () => {
 
           {/* Right: Contact Me Button (desktop) */}
           <div className="hidden md:flex items-center space-x-2">
-            <button
-              onClick={() => contact("contact")}
+            <a
+              href="#contact"
               className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
             >
               Contact me
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -141,12 +141,12 @@ const Header = () => {
             </a>
           ))}
 
-          <button
-            onClick={() => signIn("google")}
+          <a
+            href="#contact"
             className="mt-6 rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"
           >
-            Sign up with Google
-          </button>
+            Contact me
+          </a>
         </nav>
       </div>
     </header>
