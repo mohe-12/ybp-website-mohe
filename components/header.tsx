@@ -101,7 +101,7 @@ const Header = () => {
               href="#contact"
               className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
             >
-              Contact me
+              Contact us
             </a>
           </div>
 
@@ -145,7 +145,7 @@ const Header = () => {
             href="#contact"
             className="mt-6 rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"
           >
-            Contact me
+            Contact us
           </a>
         </nav>
       </div>
