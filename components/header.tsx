@@ -143,7 +143,7 @@ const Header = () => {
 
           <a
             href="#contact"
-            className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
+            className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm text-center justify-center"
           >
             Contact us
           </a>
