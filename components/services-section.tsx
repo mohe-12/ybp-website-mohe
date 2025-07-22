@@ -1,158 +1,125 @@
 'use client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Fuel, Truck, Shield, ArrowRight, Factory, Leaf, Wrench, Car} from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Button } from "./ui/button"
 import Image from "next/image"
 
 
 
+
+const services = [
+  {
+    title: "Retail Fuel Sales",
+    description: "Premium gasoline, diesel, and other petroleum products for vehicles",
+    image: "/images/diesel.jpg",
+    features: [
+      "Regular & Premium Gasoline",
+      "Diesel Fuel",
+      "Lubricants & Oil",
+      "24/7 Service Available"
+    ]
+  },
+  {
+    title: "Bulk Distribution",
+    description: "Wholesale fuel distribution to businesses and organizations",
+    image: "/images/bulk.jpg",
+    features: [
+      "Commercial Fleet Fueling",
+      "Industrial Supply",
+      "Agricultural Sector Support",
+      "Competitive Pricing",
+      "Quality Products"
+    ]
+  },
+  {
+    title: "Storage & Logistics",
+    description: "Safe storage and efficient distribution throughout the region",
+    image: "/images/storage.jpg",
+    features: [
+      "Secure Storage Facilities",
+      "Transportation Services",
+      "Supply Chain Management",
+      "Emergency Supply"
+    ]
+  },
+  {
+    title: "Industrial Solutions",
+    description: "Specialized petroleum solutions for manufacturing, mining, and industrial operations",
+    image: "/images/industry.jpg",
+    features: [
+      "Custom Solutions",
+      "Technical Support",
+      "Equipment supply",
+      "Maintenance services"
+    ]
+  },
+  {
+    title: "Environmental Solutions",
+    description: "Sustainable practices and environmental protection services for petroleum operations",
+    image: "/images/envt.png",
+    features: [
+      "Environmental Monitoring",
+      "Waste Management",
+      "Green Technologies",
+      "Sustainability Consulting"
+    ]
+  },
+  {
+    title: "Car Washing Services",
+    description: "Comprehensive car washing and detailing services to keep your vehicle looking pristine",
+    image: "/images/wash.jpg",
+    features: [
+      "Exterior Hand Wash",
+      "Interior Vacuuming",
+      "Waxing and Polishing",
+      "Engine Bay Cleaning",
+      "Detailing Packages Available"
+    ]
+  }
+]
+
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-20">
+    <section id="services" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-extrabold  mb-4 text-green-800">Our Services</h2>
-          <p className="text-xl text-gray-900 font-sans">Comprehensive petroleum solutions for individuals and businesses</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-green-800 mb-4">Our Services</h2>
+          <p className="text-lg md:text-xl text-gray-700">Comprehensive petroleum solutions for individuals and businesses</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-col gap-4">
-              <div className="flex gap-4">
-               <Image src="/images/diesel.jpg" alt="Castrol Lubricant" width={350} height={120} className="rounded-md" />
-               </div>
-              <CardTitle className="font-extrabold">Retail Fuel Sales</CardTitle>
-              <CardDescription className="text-gray-900">Premium gasoline, diesel, and other petroleum products for vehicles</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-6  text-sm text-gray-900 ">
-                <li>• Regular & Premium Gasoline</li>
-                <li>• Diesel Fuel</li>
-                <li>• Lubricants & Oil</li>
-                <li>• 24/7 Service Available</li>
-              </ul>
-            </CardContent>
-
-            <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-col gap-4">
-              <div className="flex gap-4">
-              <Image src="/images/bulk.jpg" alt="Castrol Lubricant" width={350} height={120} className="rounded-md" />
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((service, index) => (
+            <Card key={index} className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl">
+              <div className="h-[180px] overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  width={400}
+                  height={180}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
-              <CardTitle className="font-extrabold">Bulk Distribution</CardTitle>
-              <CardDescription className="text-gray-900">Wholesale fuel distribution to businesses and organizations</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-6  text-sm text-gray-900">
-                <li>• Commercial Fleet Fueling</li>
-                <li>• Industrial Supply</li>
-                <li>• Agricultural Sector Support</li>
-                <li>• Competitive Pricing</li>
-                <li>• Quality Products</li>
-              </ul>
-            </CardContent>
-             
-             <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
+              <CardHeader className="p-5">
+                <CardTitle className="text-lg font-extrabold text-gray-900">{service.title}</CardTitle>
+                <CardDescription className="mt-2 text-gray-700">{service.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="px-5 pb-5">
+                <ul className="space-y-2 text-sm text-gray-800 mb-6 list-disc pl-5">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx}>{feature}</li>
+                  ))}
+                </ul>
+                <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
                   Learn More
                   <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
                 </Button>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-col gap-4">
-              <div className="flex gap-4">
-              <Image src="/images/storage.jpg" alt="Castrol Lubricant" width={350} height={120} className="rounded-md" />
-              </div>
-              <CardTitle className="font-extrabold">Storage & Logistics</CardTitle>
-              <CardDescription className="text-gray-900">Safe storage and efficient distribution throughout the region</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-6 text-sm text-gray-900">
-                <li>• Secure Storage Facilities</li>
-                <li>• Transportation Services</li>
-                <li>• Supply Chain Management</li>
-                <li>• Emergency Supply</li>
-              </ul>
-            </CardContent>
-            <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-col gap-4">
-              <div className="flex gap-4">
-              <Image src="/images/industry.jpg" alt="Castrol Lubricant" width={350} height={120} className="rounded-md" />
-              </div>
-              <CardTitle className="font-extrabold">Industrial Solutions</CardTitle>
-              <CardDescription className="text-gray-900">Specialized petroleum solutions for manufacturing, mining, and industrial operations</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-6  text-sm text-gray-900">
-                <li>• Custom Solutions</li>
-                <li>• Technical Support</li>
-                <li>• Equipment supply</li>
-                <li>• Maintenance services</li>
-              </ul>
-            </CardContent>
-            <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-col gap-4">
-              <div className="flex gap-4">
-              <Image src="/images/envt.png" alt="Castrol Lubricant" width={350} height={120} className="rounded-md" />
-              </div>
-              <CardTitle className="font-extrabold">Environmental Solutions</CardTitle>
-              <CardDescription className="text-gray-900">Sustainable practices and environmental protection services for petroleum operations.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-6  text-sm text-gray-900">
-                <li>• Environmental Monitoring</li>
-                <li>• Waste Management</li>
-                <li>• Green Technologies</li>
-                <li>• Sustainability Consulting</li>
-              </ul>
-            </CardContent>
-            <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-          </Card>
-
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardHeader className="flex flex-col gap-4">
-               <div className="flex gap-4">
-              <Image src="/images/wash.jpg" alt="Castrol Lubricant" width={350} height={120} className="rounded-md" />
-              </div>
-              <CardTitle className="font-extrabold">Car Washing Services</CardTitle>
-              <CardDescription className="text-gray-900">Comprehensive car washing and detailing services to keep your vehicle looking pristine.</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 mb-6  text-sm text-gray-900">
-                <li>• Exterior Hand Wash</li>
-                <li>• Interior Vacuuming</li>
-                <li>• Waxing and Polishing</li>
-                <li>• Engine Bay Cleaning</li>
-                <li>• Detailing Packages Available</li>
-              </ul>
-            </CardContent>
-            <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-          </Card>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </div>
     </section>
   )
 }
+
+
