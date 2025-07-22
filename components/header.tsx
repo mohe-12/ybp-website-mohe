@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
-import { signIn } from "next-auth/react"
+
 
 
 
@@ -98,14 +98,14 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right: Sign Up Button (desktop) */}
+          {/* Right:contact us Button (desktop) */}
           <div className="hidden md:flex items-center space-x-2">
-            <button
-              onClick={() => signIn("google")}
+            <a
+              href="#contact"
               className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
             >
-              Signup
-            </button>
+              Contact Us
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -142,12 +142,12 @@ const Header = () => {
               {section}
             </a>
           ))}
-          <button
-            onClick={() => signIn("google")}
+          <a
+            href="#contact"
             className="mt-6 rounded-md bg-green-600 px-4 py-2 text-white hover:bg-green-700"
           >
-            Sign up with Google
-          </button>
+            Contact Us
+          </a>
         </nav>
       </div>
     </header>
