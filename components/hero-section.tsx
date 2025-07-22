@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-[80vh] bg-white bg-cover bg-center bg-no-repeat flex flex-col justify-center"
+      className="relative min-h-[80vh] bg-white bg-cover bg-center bg-no-repeat flex flex-col justify-center pt-[20px]"
       style={{
        backgroundImage: "url('/images/ybp-station.jpg')",
    }}
