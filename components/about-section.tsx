@@ -1,6 +1,8 @@
 import Image from "next/image"
 import { Shield, Truck, Fuel, Users } from "lucide-react"
 
+
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-20 bg-gray-50">
@@ -11,7 +13,6 @@ export default function AboutSection() {
             Established as a leading petroleum distribution company in Bale Robe city, we are committed to providing
             quality fuel and exceptional service to our community.
           </p>
-         
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -23,7 +24,15 @@ export default function AboutSection() {
               height={400}
               className="rounded-lg shadow-lg"
             />
-          </div>
+          <div className="absolute inset-0 flex items-end justify-center p-4">
+        <div className="flex items-center gap-2 bg-black bg-opacity-50 px-4 py-2 rounded">
+          <MapPin className="text-green-500 w-6 h-6" />
+          <h2 className="text-white text-sm font-bold">
+           Empowering Fuel Solutions
+         </h2>
+       </div>
+       </div>
+        </div>
            
            <div>
             <h3 className="text-2xl font-extrabold text-gray-800 mb-6">Company Overview</h3>
@@ -36,19 +45,42 @@ export default function AboutSection() {
              we ensure reliable supply of petroleum products to retail stations, commercial clients, and industrial customers throughout the region.</p>
              <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center space-x-2">
+                <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                  >
                 <Shield className="h-5 w-5 text-green-600" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Safety Certified</span>
               </div>
+
               <div className="flex items-center space-x-2">
-                <Truck className="h-5 w-5 text-green-600" />
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Truck className="h-5 w-5 text-green-600 animate-pulse" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Fleet Management</span>
               </div>
+
               <div className="flex items-center space-x-2">
-                <Fuel className="h-5 w-5 text-green-600" />
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }} 
+                >
+                  <Fuel className="h-5 w-5 text-green-600 animate-pulse" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Quality Fuel</span>
               </div>
+
               <div className="flex items-center space-x-2">
-                <Users className="h-5 w-5 text-green-600" />
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Users className="h-5 w-5 text-green-600 animate-pulse" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Expert Team</span>
               </div>
             </div>
