@@ -16,16 +16,16 @@ export default function AboutSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <Image
-              src="/images/ybp-facility.png"
-              alt="YBP Distribution Facility"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
-            />
-          <div className="absolute inset-0 flex items-end justify-center p-4">
+     <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative w-fit">
+         <Image
+          src="/images/ybp-facility.png"
+          alt="YBP Distribution Facility"
+          width={600}
+          height={400}
+          className="rounded-lg shadow-lg"
+        />
+       <div className="absolute inset-0 flex items-end justify-center p-4">
         <div className="flex items-center gap-2 bg-black bg-opacity-50 px-4 py-2 rounded">
           <MapPin className="text-green-500 w-6 h-6" />
           <h2 className="text-white text-sm font-bold">
