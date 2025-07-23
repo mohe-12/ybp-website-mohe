@@ -17,7 +17,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <Image
-              src="/images/ybp-facility.jpg"
+              src="/images/ybp-facility.png"
               alt="YBP Distribution Facility"
               width={600}
               height={400}
