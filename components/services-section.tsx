@@ -1,6 +1,6 @@
 'use client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { Button } from "./ui/button"
 import Image from "next/image"
 
@@ -103,17 +103,24 @@ export default function ServicesSection() {
                 <CardTitle className="text-lg font-extrabold text-gray-900">{service.title}</CardTitle>
                 <CardDescription className="mt-2 text-gray-700">{service.description}</CardDescription>
               </CardHeader>
-              <CardContent className="px-5 pb-5">
-                <ul className="space-y-2 text-sm text-gray-800 mb-6 list-disc pl-5">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>{feature}</li>
-                  ))}
-                </ul>
-                <Button variant="outline" className="w-full group/btn hover:bg-green-600 hover:text-white">
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform group-hover/btn:translate-x-1 transition-transform" />
-                </Button>
-              </CardContent>
+  <CardContent className="px-5 pb-5 flex flex-col justify-between h-full">
+  <ul className="space-y-3 text-sm text-gray-800 mb-6">
+    {service.features.map((feature, idx) => (
+      <li key={idx} className="flex items-start gap-2">
+        <CheckCircle className="text-green-600 w-4 h-4 mt-0.5 shrink-0" />
+        <span className="leading-snug">{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <Button
+    variant="outline"
+    className="w-full group hover:bg-green-600 hover:text-white transition-all duration-300"
+  >
+    Learn More
+    <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+  </Button>
+</CardContent>
             </Card>
           ))}
         </div>
