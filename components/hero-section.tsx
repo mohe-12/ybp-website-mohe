@@ -20,10 +20,11 @@ export default function HeroSection() {
 <div className="relative z-10 px-4 pt-24 pb-20 sm:pt-32 sm:pb-28 lg:pt-36 lg:pb-32 text-center flex flex-col items-center justify-center">
   <div className="max-w-4xl">
     <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 uppercase tracking-tight">
-      Empowering Fuel Solutions for Bale Robe
+      Driving Excellence in Energy Delivery
     </h1>
     <p className="text-base sm:text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-      Yetebaberut Beherawi Petroleum (YBP) Share Company delivers reliable and efficient petroleum services that drive mobility, development, and sustainability in the Bale Robe region and beyond.
+      YBP Share Company delivers high-quality petroleum solutions that power mobility, infrastructure, 
+      and sustainable growth across Bale Robe and Ethiopia.
     </p>
     <div className="flex flex-col sm:flex-row gap-4 justify-center">
       <Button
