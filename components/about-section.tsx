@@ -1,6 +1,5 @@
 'use client'
 import Image from "next/image"
-import { motion } from "framer-motion"
 import { Shield, Truck, Fuel, Users, MapPin } from "lucide-react"
 
 
@@ -47,42 +46,22 @@ export default function AboutSection() {
              we ensure reliable supply of petroleum products to retail stations, commercial clients, and industrial customers throughout the region.</p>
              <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center space-x-2">
-                <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                  >
                 <Shield className="h-5 w-5 text-green-600" />
-                </motion.div>
                 <span className="text-sm text-gray-900">Safety Certified</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                >
                   <Truck className="h-5 w-5 text-green-600 animate-pulse" />
-                </motion.div>
                 <span className="text-sm text-gray-900">Fleet Management</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }} 
-                >
                   <Fuel className="h-5 w-5 text-green-600 animate-pulse" />
-                </motion.div>
                 <span className="text-sm text-gray-900">Quality Fuel</span>
               </div>
 
               <div className="flex items-center space-x-2">
-                <motion.div
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
-                >
                   <Users className="h-5 w-5 text-green-600 animate-pulse" />
-                </motion.div>
                 <span className="text-sm text-gray-900">Expert Team</span>
               </div>
             </div>
