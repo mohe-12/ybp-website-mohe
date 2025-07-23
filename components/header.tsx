@@ -60,12 +60,12 @@ const Header = () => {
         <div className="flex items-center justify-between w-full">
           {/* Logo and Info */}
           <div className="flex items-center space-x-2 shrink-0">
-            <div className="rounded-full bg-white p-1">
+            <div className="flex justify-center items-center">
               <Image
-                src="/images/logo.webp"
+                src="/images/logo.jpg"
                 alt="YBP Logo"
                 className="rounded-full"
-                width={50}
+                width={70}
                 height={50}
               />
             </div>
