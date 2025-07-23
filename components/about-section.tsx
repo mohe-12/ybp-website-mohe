@@ -1,5 +1,7 @@
+'use client'
 import Image from "next/image"
-import { Shield, Truck, Fuel, Users } from "lucide-react"
+import { motion } from "framer-motion"
+import { Shield, Truck, Fuel, Users, MapPin } from "lucide-react"
 
 
 
