@@ -8,7 +8,6 @@ import { Menu, X } from "lucide-react"
 
 
 const sections = ["home", "about", "services", "product", "contact"]
-
 const Header = () => {
   const sideMenuRef = useRef<HTMLDivElement>(null)
   const [activeSection, setActiveSection] = useState("home")
@@ -64,7 +63,7 @@ const Header = () => {
               <Image
                 src="/images/logo.jpg"
                 alt="YBP Logo"
-                className="rounded-full"
+                className=""
                 width={70}
                 height={50}
               />
