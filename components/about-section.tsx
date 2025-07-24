@@ -1,6 +1,9 @@
 'use client'
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { Shield, Truck, Fuel, Users, MapPin } from "lucide-react"
+
+
 
 
 
@@ -15,8 +18,8 @@ export default function AboutSection() {
             quality fuel and exceptional service to our community.
           </p>
         </div>
-
-     <div className="grid md:grid-cols-2 gap-12 items-center">
+                                      
+        <div className="grid md:grid-cols-2 gap-12 items-center">
         <div className="relative w-fit">
          <Image
           src="/images/ybp-facility.png"
@@ -34,34 +37,58 @@ export default function AboutSection() {
        </div>
        </div>
         </div>
-           
+
            <div>
-            <h3 className="text-2xl font-extrabold text-gray-800 mb-6">Company Overview</h3>
+            <div>
+              <h3 className="text-2xl font-extrabold text-gray-800 mb-6">Welcome! </h3>
+            </div>
+            <h3 className="text-2xl font-extrabold text-gray-800 mb-6">You have a business to run. </h3>
             <p className="text-gray-900 mb-6 font-sans">
-              Yetebaberut Beherawi Petroleum Share Company was founded in 2018 with a vision to become the leading petroleum distributor in the Bale Region. 
-              Our Robe branch serves as a crucial hub for fuel distribution across southeastern Ethiopia.
+              YBP petroleum share Company makes it easy for you, your people, and your company. Our Robe branch serves as a crucial hub for fuel distribution across southeastern Ethiopia.
+              Your equipment is running on-time, all the time, with lubricants and the highest quality fuels. You take pride in your equipment and we do the same. 
+              Distribution centers, delivery fleets, technical services, specialty products, and highly trained operators combine to provide you and your business the best value, service, know-how, and products.
             </p>
             <p className="text-gray-900 mb-6 font-sans">
              With state-of-the-art storage facilities and a dedicated team of professionals, 
              we ensure reliable supply of petroleum products to retail stations, commercial clients, and industrial customers throughout the region.</p>
              <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center space-x-2">
+                <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                  >
                 <Shield className="h-5 w-5 text-green-600" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Safety Certified</span>
               </div>
 
               <div className="flex items-center space-x-2">
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                >
                   <Truck className="h-5 w-5 text-green-600 animate-pulse" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Fleet Management</span>
               </div>
 
               <div className="flex items-center space-x-2">
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }} 
+                >
                   <Fuel className="h-5 w-5 text-green-600 animate-pulse" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Quality Fuel</span>
               </div>
 
               <div className="flex items-center space-x-2">
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
+                >
                   <Users className="h-5 w-5 text-green-600 animate-pulse" />
+                </motion.div>
                 <span className="text-sm text-gray-900">Expert Team</span>
               </div>
             </div>
