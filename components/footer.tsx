@@ -12,7 +12,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-3 mb-4 md:mb-0">
             <div className=" text-green-800 font-bold text-xl px-2 py-1 rounded-full">
-              <Image src="/images/logo.webp" alt={''} className='rounded-full' width={100} height={50}/>
+              <Image src="/images/logo.jpg" alt={''} className='rounded-full' width={80} height={50}/>
             </div>
             <div>
               <p className="font-semibold">Yetebaberut Beherawi Petroleum</p>
