@@ -91,14 +91,6 @@ export default function ProductSection() {
                   {card.description}
                 </p>
 
-                {/* Learn More Button - currently visual only */}
-                <button
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 border border-green-600 text-green-700 rounded-md hover:bg-green-600 hover:text-white transition-all duration-300 text-sm font-medium"
-                >
-                  Learn More
-                  <ArrowRight className="h-4 w-4 translate-x-1 transition-transform duration-300" />
-                </button>
-
                 {/* Feature List - always visible */}
                 <ul className="space-y-2 text-sm text-gray-600 mt-4">
                   {card.features.map((feature, j) => (
@@ -118,6 +110,14 @@ export default function ProductSection() {
                     </li>
                   ))}
                 </ul>
+                
+                 {/* Learn More Button - currently visual only */}
+                <button
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 border border-green-600 text-green-700 rounded-md hover:bg-green-600 hover:text-white transition-all duration-300 text-sm font-medium"
+                >
+                  Learn More
+                  <ArrowRight className="h-4 w-4 translate-x-1 transition-transform duration-300" />
+                </button>
               </CardContent>
             </Card>
           ))}
