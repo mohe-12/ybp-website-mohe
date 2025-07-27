@@ -71,7 +71,7 @@ export default function ProductSection() {
               </div>
 
               {/* Text */}
-              <CardContent className="p-6 bg-white transition-colors duration-300 group-hover:bg-green-50">
+          <CardContent  className="px-5 pb-5 flex flex-col justify-between h-full">
                 <h4 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">
                   {card.title}
                 </h4>
@@ -101,7 +101,7 @@ export default function ProductSection() {
                 
                  {/* Learn More Button - currently visual only */}
                 <button
-                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 border border-green-600 text-green-700 rounded-md hover:bg-green-600 hover:text-white transition-all duration-300 text-sm font-medium"
+                  className="w-full group hover:bg-green-600 hover:text-white transition-all duration-300"
                 >
                   Learn More
                   <ArrowRight className="h-4 w-4 translate-x-1 transition-transform duration-300" />
