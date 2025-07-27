@@ -31,18 +31,6 @@ const productCards = [
     ],
   },
   {
-    title: "LPG & Gas Cylinder Solutions",
-    description:
-      "Safe and certified LPG solutions for residential, commercial, and industrial use cases.",
-    images: ["/images/cylinder.png"],
-    features: [
-      "Multiple Cylinder Sizes",
-      "Butane & Propane Mixes",
-      "Cooking & Heating Energy",
-      "Nationwide Delivery & Refill",
-    ],
-  },
-  {
     title: "Engine Additives & Cooling Systems",
     description:
       "Extend your engine life with cutting-edge additives and cooling fluids for modern demands.",
