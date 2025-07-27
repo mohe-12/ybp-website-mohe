@@ -86,12 +86,6 @@ export default function ProductSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {productCards.map((card, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300 }}
-              className="group"
-            >
               <Card className="rounded-2xl overflow-hidden border border-gray-100 bg-white transition duration-300 shadow-sm hover:shadow-xl hover:border-green-600">
                 {/* Image */}
                 <div className="relative aspect-[3/2] overflow-hidden">
@@ -126,15 +120,6 @@ export default function ProductSection() {
                   </button>
 
                   {/* Feature List */}
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      height: openStates[index] ? "auto" : 0,
-                      opacity: openStates[index] ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden mt-4"
-                  >
                     <ul className="space-y-2 text-sm text-gray-600">
                       {card.features.map((feature, j) => (
                         <li key={j} className="flex items-start">
@@ -153,10 +138,8 @@ export default function ProductSection() {
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
                 </CardContent>
               </Card>
-            </motion.div>
           ))}
         </div>
       </div>
