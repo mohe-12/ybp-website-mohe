@@ -1,9 +1,10 @@
 'use client'
 
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { useState } from "react"
-import { ArrowRight } from "lucide-react"
 
 const productCards = [
   {
@@ -57,55 +58,51 @@ export default function ProductSection() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {productCards.map((card, index) => (
-            <Card key={index} className="rounded-2xl overflow-hidden border border-gray-100 bg-white transition duration-300 shadow-sm hover:shadow-xl hover:border-green-600">
+            <Card
+              key={index}
+              className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl"
+            >
               {/* Image */}
-              <div className="relative aspect-[3/2] overflow-hidden">
+              <div className="h-[180px] overflow-hidden">
                 <Image
                   src={card.images[0]}
                   alt={card.title}
-                  fill
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  width={400}
+                  height={180}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 
-              {/* Text */}
-          <CardContent  className="px-5 pb-5 flex flex-col justify-between h-full">
-                <h4 className="text-xl font-bold text-gray-900 mb-2 tracking-tight">
+              {/* Text Header */}
+              <CardHeader className="p-5">
+                <CardTitle className="text-lg font-extrabold text-gray-900">
                   {card.title}
-                </h4>
-                <p className="text-sm text-gray-700 leading-relaxed mb-4">
+                </CardTitle>
+                <CardDescription className="mt-2 text-gray-700">
                   {card.description}
-                </p>
+                </CardDescription>
+              </CardHeader>
 
-                {/* Feature List - always visible */}
-                <ul className="space-y-2 text-sm text-gray-600 mt-4">
+              {/* Feature List + Button */}
+              <CardContent className="px-5 pb-5 flex flex-col justify-between h-full">
+                <ul className="space-y-3 text-sm text-gray-800 mb-6">
                   {card.features.map((feature, j) => (
-                    <li key={j} className="flex items-start">
-                      <svg
-                        className="w-4 h-4 mt-1 text-green-500 mr-2"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      {feature}
+                    <li key={j} className="flex items-start gap-2">
+                      <CheckCircle className="text-green-600 w-4 h-4 mt-0.5 shrink-0" />
+                      <span className="leading-snug">{feature}</span>
                     </li>
                   ))}
                 </ul>
-                
-                 {/* Learn More Button - currently visual only */}
-                <button
+
+                <Button
+                  variant="outline"
                   className="w-full group hover:bg-green-600 hover:text-white transition-all duration-300"
                 >
                   Learn More
-                  <ArrowRight className="h-4 w-4 translate-x-1 transition-transform duration-300" />
-                </button>
+                  <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
               </CardContent>
             </Card>
           ))}
