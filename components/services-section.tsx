@@ -90,7 +90,7 @@ export default function ServicesSection() {
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service, index) => (
             <Card key={index} className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl">
-              <div className="h-[180px] overflow-hidden">
+              <div className="h-[220px] overflow-hidden">
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -103,6 +103,7 @@ export default function ServicesSection() {
                 <CardTitle className="text-lg font-extrabold text-gray-900">{service.title}</CardTitle>
                 <CardDescription className="mt-2 text-gray-700">{service.description}</CardDescription>
               </CardHeader>
+              
   <CardContent className="px-5 pb-5 flex flex-col justify-between h-full">
   <ul className="space-y-3 text-sm text-gray-800 mb-6">
     {service.features.map((feature, idx) => (
