@@ -65,7 +65,7 @@ export default function ProductSection() {
               className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl"
             >
               {/* Image */}
-              <div className="h-[180px] overflow-hidden">
+              <div className="h-[220px] overflow-hidden">
                 <Image
                   src={card.images[0]}
                   alt={card.title}
