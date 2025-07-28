@@ -105,7 +105,7 @@ const Header = () => {
             <a
               key={section}
               href={`#${section}`}
-              className={`capitalize transition-all duration-200 pb-1 border-b-2 ${
+              className={`capitalize transition-all duration-200 pb-1 ${
                 activeSection === section
                   ? "border-yellow-400 text-yellow-400"
                   : "border-transparent hover:border-yellow-300 hover:text-yellow-300"
