@@ -1,18 +1,14 @@
 "use client"
-import React, { useRef, useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 
-
-
-
-
 const sections = ["home", "about", "services", "product", "contact"]
-const Header = () => {
-  const sideMenuRef = useRef<HTMLDivElement>(null)
-  const [activeSection, setActiveSection] = useState("home")
 
-  // Scroll listener to update active section
+const Header = () => {
+  const [activeSection, setActiveSection] = useState("home")
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => {
       let current = "home"
@@ -28,7 +24,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Smooth scroll and close menu
   const handleNavLinkClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string
@@ -36,47 +31,25 @@ const Header = () => {
     e.preventDefault()
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     setActiveSection(id)
-    closeMenu()
-  }
-
-  // Open sidebar
-  const openMenu = () => {
-    if (sideMenuRef.current) {
-      sideMenuRef.current.style.transform = "translateX(0)"
-    }
-  }
-
-  // Close sidebar
-  const closeMenu = () => {
-    if (sideMenuRef.current) {
-      sideMenuRef.current.style.transform = "translateX(100%)"
-    }
+    setIsMenuOpen(false)
   }
 
   return (
     <header className="bg-green-700 text-white shadow-lg fixed top-0 left-0 right-0 z-50 py-4">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between w-full">
-          {/* Logo and Info */}
+          {/* Logo */}
           <div className="flex items-center space-x-2 shrink-0">
-            <div className="flex justify-center items-center">
-              <Image
-                src="/images/logo.jpg"
-                alt="YBP Logo"
-                className=""
-                width={70}
-                height={50}
-              />
-            </div>
-           <div className="leading-snug">
+            <Image src="/images/logo.jpg" alt="YBP Logo" width={70} height={50} />
+            <div className="leading-snug">
               <h1 className="text-xl font-semibold tracking-tight font-sans">
-               Yetebaberut Beherawi Petroleum
-             </h1>
-             <h2 className="text-sm font-medium text-gray-100 font-sans">
-               የተባበሩት ብሔራዊ ፔትሮሊየም (የብፔ)
-             </h2>
+                Yetebaberut Beherawi Petroleum
+              </h1>
+              <h2 className="text-sm font-medium text-gray-100 font-sans">
+                የተባበሩት ብሔራዊ ፔትሮሊየም (የብፔ)
+              </h2>
               <p className="text-green-200 text-xs italic">Bale Robe Branch</p>
-           </div>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -97,7 +70,7 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right:contact us Button (desktop) */}
+          {/* Desktop Contact Us */}
           <div className="hidden md:flex items-center space-x-2">
             <a
               href="#contact"
@@ -109,7 +82,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button onClick={openMenu} aria-label="Open Menu">
+            <button onClick={() => setIsMenuOpen(true)} aria-label="Open Menu">
               <Menu className="w-6 h-6" />
             </button>
           </div>
@@ -118,11 +91,12 @@ const Header = () => {
 
       {/* Mobile Sidebar Menu */}
       <div
-        ref={sideMenuRef}
-        className="fixed top-0 right-0 h-full w-64 bg-green-700 text-white shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col p-4 z-[100]"
+        className={`fixed top-0 right-0 h-full w-64 bg-green-700 text-white shadow-lg transform transition-transform duration-300 ease-in-out md:hidden flex flex-col p-4 z-[100] ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex justify-end mb-8">
-          <button onClick={closeMenu} aria-label="Close Menu">
+          <button onClick={() => setIsMenuOpen(false)} aria-label="Close Menu">
             <X className="w-6 h-6" />
           </button>
         </div>
@@ -143,7 +117,7 @@ const Header = () => {
           ))}
           <a
             href="#contact"
-            className="mt-6 rounded-md bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-center justify-center"
+            className="mt-6 rounded-md bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-center"
           >
             Contact Us
           </a>
@@ -152,4 +126,5 @@ const Header = () => {
     </header>
   )
 }
+
 export default Header
