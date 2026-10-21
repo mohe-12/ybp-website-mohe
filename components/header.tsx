@@ -1,11 +1,13 @@
 "use client"
 import React, { useEffect, useState } from "react"
 import Image from "next/image"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 
 const sections = ["home", "about", "services", "product", "contact"]
 
 const Header = () => {
+  const pathname = usePathname()
   const [activeSection, setActiveSection] = useState("home")
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -28,6 +30,11 @@ const Header = () => {
     e: React.MouseEvent<HTMLAnchorElement>,
     id: string
   ) => {
+    if (pathname !== "/") {
+      setIsMenuOpen(false)
+      return
+    }
+
     e.preventDefault()
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
     setActiveSection(id)
@@ -57,7 +64,7 @@ const Header = () => {
             {sections.map((section) => (
               <a
                 key={section}
-                href={`#${section}`}
+                href={pathname === "/" ? `#${section}` : `/#${section}`}
                 className={`capitalize transition-all duration-200 pb-1 border-b-2 ${
                   activeSection === section
                     ? "border-yellow-400 text-yellow-400"
@@ -73,7 +80,7 @@ const Header = () => {
           {/* Desktop Contact Us */}
           <div className="hidden md:flex items-center space-x-2">
             <a
-              href="#contact"
+              href={pathname === "/" ? "#contact" : "/#contact"}
               className="rounded-md font-semibold bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-sm"
             >
               Contact Us
@@ -104,7 +111,7 @@ const Header = () => {
           {sections.map((section) => (
             <a
               key={section}
-              href={`#${section}`}
+              href={pathname === "/" ? `#${section}` : `/#${section}`}
               className={`capitalize transition-all duration-200 pb-1 ${
                 activeSection === section
                   ? "border-yellow-400 text-yellow-400"
@@ -116,7 +123,7 @@ const Header = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href={pathname === "/" ? "#contact" : "/#contact"}
             className="mt-6 rounded-md bg-yellow-500 px-4 py-2 hover:bg-yellow-600 text-green-800 text-center"
           >
             Contact Us

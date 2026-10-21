@@ -4,46 +4,7 @@ import Image from "next/image"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, CheckCircle } from "lucide-react"
-import { useState } from "react"
-
-const productCards = [
-  {
-    title: "Castrol Automotive Lubricants",
-    description:
-      "Optimize your vehicle's performance with Castrol's high-efficiency lubricants tailored for modern engines.",
-    images: ["/images/product.png"],
-    features: [
-      "High-Performance Gasoline & Diesel",
-      "Advanced Engine Lubricants",
-      "Motor Oils for All Vehicle Types",
-      "24/7 On-Demand Fueling Support",
-    ],
-  },
-  {
-    title: "Heavy-Duty Lubricants & Logistics",
-    description:
-      "Powering infrastructure with heavy-grade lubricants and dependable distribution networks.",
-    images: ["/images/down.png"],
-    features: [
-      "Heavy Machinery Lubricants",
-      "Secure Logistics Fleet",
-      "Regional Supply Chains",
-      "Emergency Fuel Distribution",
-    ],
-  },
-  {
-    title: "Engine Additives & Cooling Systems",
-    description:
-      "Extend your engine life with cutting-edge additives and cooling fluids for modern demands.",
-    images: ["/images/mom.jpg"],
-    features: [
-      "Radiator Coolants",
-      "Fuel Injector Cleaners",
-      "Anti-Corrosion Systems",
-      "Complete Engine Protection",
-    ],
-  },
-]
+import { products } from "@/lib/learn-more"
 
 export default function ProductSection() {
   return (
@@ -59,15 +20,15 @@ export default function ProductSection() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {productCards.map((card, index) => (
+          {products.map((card) => (
             <Card
-              key={index}
+              key={card.slug}
               className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl"
             >
               {/* Image */}
               <div className="h-[220px] overflow-hidden">
                 <Image
-                  src={card.images[0]}
+                  src={card.image}
                   alt={card.title}
                   width={400}
                   height={180}
@@ -97,11 +58,14 @@ export default function ProductSection() {
                 </ul>
 
                 <Button
+                  asChild
                   variant="outline"
                   className="w-full group hover:bg-green-600 hover:text-white transition-all duration-300"
                 >
-                  Learn More
-                  <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+                  <a href={`/learn-more/${card.slug}`}>
+                    Learn More
+                    <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
                 </Button>
               </CardContent>
             </Card>

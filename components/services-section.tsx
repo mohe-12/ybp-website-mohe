@@ -3,80 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ArrowRight, CheckCircle } from "lucide-react"
 import { Button } from "./ui/button"
 import Image from "next/image"
-
-
-
-
-const services = [
-  {
-    title: "Retail Fuel Sales",
-    description: "Premium gasoline, diesel, and other petroleum products for vehicles",
-    image: "/images/diesel.jpg",
-    features: [
-      "Regular & Premium Gasoline",
-      "Diesel Fuel",
-      "Lubricants & Oil",
-      "24/7 Service Available"
-    ]
-  },
-  {
-    title: "Bulk Distribution",
-    description: "Wholesale fuel distribution to businesses and organizations",
-    image: "/images/bulk.jpg",
-    features: [
-      "Commercial Fleet Fueling",
-      "Industrial Supply",
-      "Agricultural Sector Support",
-      "Competitive Pricing",
-      "Quality Products"
-    ]
-  },
-  {
-    title: "Storage & Logistics",
-    description: "Safe storage and efficient distribution throughout the region",
-    image: "/images/storage.jpg",
-    features: [
-      "Secure Storage Facilities",
-      "Transportation Services",
-      "Supply Chain Management",
-      "Emergency Supply"
-    ]
-  },
-  {
-    title: "Industrial Solutions",
-    description: "Specialized petroleum solutions for manufacturing, mining, and industrial operations",
-    image: "/images/industry.jpg",
-    features: [
-      "Custom Solutions",
-      "Technical Support",
-      "Equipment supply",
-      "Maintenance services"
-    ]
-  },
-  {
-    title: "Environmental Solutions",
-    description: "Sustainable practices and environmental protection services for petroleum operations",
-    image: "/images/envt.png",
-    features: [
-      "Environmental Monitoring",
-      "Waste Management",
-      "Green Technologies",
-      "Sustainability Consulting"
-    ]
-  },
-  {
-    title: "Car Washing Services",
-    description: "Comprehensive car washing and detailing services to keep your vehicle looking pristine",
-    image: "/images/wash.jpg",
-    features: [
-      "Exterior Hand Wash",
-      "Interior Vacuuming",
-      "Waxing and Polishing",
-      "Engine Bay Cleaning",
-      "Detailing Packages Available"
-    ]
-  }
-]
+import { services } from "@/lib/learn-more"
 
 export default function ServicesSection() {
   return (
@@ -88,8 +15,8 @@ export default function ServicesSection() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <Card key={index} className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl">
+          {services.map((service) => (
+            <Card key={service.slug} className="group relative flex flex-col overflow-hidden border hover:border-green-600 transition duration-300 shadow-sm hover:shadow-xl rounded-2xl">
               <div className="h-[220px] overflow-hidden">
                 <Image
                   src={service.image}
@@ -115,11 +42,14 @@ export default function ServicesSection() {
   </ul>
 
   <Button
+    asChild
     variant="outline"
     className="w-full group hover:bg-green-600 hover:text-white transition-all duration-300"
   >
-    Learn More
-    <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+    <a href={`/learn-more/${service.slug}`}>
+      Learn More
+      <ArrowRight className="ml-2 h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1" />
+    </a>
   </Button>
 </CardContent>
             </Card>
@@ -129,5 +59,3 @@ export default function ServicesSection() {
     </section>
   )
 }
-
-
